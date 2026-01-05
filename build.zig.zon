@@ -1,0 +1,17 @@
+.{
+    .name = .wisp,
+    .version = "0.0.1",
+    .fingerprint = 0xc4bdec9f3252fb34,
+    .minimum_zig_version = "0.15.2",
+    .paths = .{
+        "src",
+        "build.zig",
+        "build.zig.zon",
+    },
+    .dependencies = .{
+        .zigwin32 = .{
+            .url = "https://github.com/marlersoft/zigwin32/archive/refs/heads/main.tar.gz",
+            .hash = "zigwin32-25.0.28-preview-AAAAAICM5AMResOGQnQ85mfe60TTOQeMtt7GRATUOKoP",
+        },
+    },
+}
