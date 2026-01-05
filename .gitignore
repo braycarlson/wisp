@@ -1,8 +1,5 @@
-# toolkit
-*.json
+# wisp
 .zig-cache/
-examples/
-recordings/
 zig-out/
 
 # Binaries for programs and plugins
