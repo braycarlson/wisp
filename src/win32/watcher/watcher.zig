@@ -82,7 +82,6 @@ pub const Watcher = struct {
 
     pub fn watch(self: *Watcher, input: []const u8, callback: Callback) Error!void {
         std.debug.assert(@intFromPtr(self) != 0);
-        std.debug.assert(input.len > 0);
         std.debug.assert(@intFromPtr(callback) != 0);
 
         if (self.running.load(.acquire)) {

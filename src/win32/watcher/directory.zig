@@ -19,9 +19,6 @@ pub const Directory = struct {
     handle: w32.HANDLE,
 
     pub fn open(path: []const u8) Error!Directory {
-        std.debug.assert(path.len > 0);
-        std.debug.assert(path.len < path_max);
-
         if (path.len == 0 or path.len >= path_max) {
             return Error.InvalidPath;
         }

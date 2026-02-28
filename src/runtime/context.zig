@@ -33,9 +33,7 @@ pub const AnyContext = struct {
         return @ptrCast(@alignCast(self.ptr));
     }
 
-    fn type_hash(comptime _: type) usize {
-        return @intFromPtr(&struct {
-            var id: u8 = 0;
-        }.id);
+    fn type_hash(comptime T: type) usize {
+        return @intFromPtr(@typeName(T).ptr);
     }
 };

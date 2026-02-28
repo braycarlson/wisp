@@ -43,9 +43,6 @@ pub const Path = struct {
     }
 
     pub fn parse(input: []const u8) Error!Path {
-        std.debug.assert(input.len > 0);
-        std.debug.assert(input.len <= path_max);
-
         if (input.len == 0 or input.len > path_max) {
             return Error.InvalidPath;
         }

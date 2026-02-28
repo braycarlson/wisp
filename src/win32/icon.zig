@@ -63,7 +63,7 @@ pub const LoadOptions = struct {
 pub const DrawOptions = struct {
     background: ?w32.HBRUSH = null,
     flags: DrawFlags = .{},
-    foreground: ?w32.COLORREF = null,
+    foreground: ?u32 = null,
     frame_index: u32 = 0,
     hdc: w32.HDC,
     height: u32 = 0,

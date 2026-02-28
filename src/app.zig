@@ -110,9 +110,10 @@ pub const App = struct {
         self.state.deinit();
         self.notification.deinit();
 
-        _ = self.lifecycle.transition(.stopped);
+        self.lifecycle.stage = .stopped;
 
         std.debug.assert(self.window == null);
+        std.debug.assert(self.lifecycle.stage == .stopped);
     }
 
     pub fn configure(self: *App) *App {

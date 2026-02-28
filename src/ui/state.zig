@@ -138,8 +138,6 @@ pub const StateManager = struct {
 
     pub fn set(self: *StateManager, new_state: []const u8) Error!void {
         std.debug.assert(@intFromPtr(self) != 0);
-        std.debug.assert(new_state.len > 0);
-        std.debug.assert(new_state.len < state_max);
 
         if (new_state.len == 0 or new_state.len >= state_max) {
             return Error.InvalidState;

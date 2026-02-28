@@ -203,7 +203,6 @@ pub const TrayManager = struct {
 
     pub fn set_tooltip(self: *TrayManager, tooltip: []const u8) Error!void {
         std.debug.assert(@intFromPtr(self) != 0);
-        std.debug.assert(tooltip.len > 0);
         std.debug.assert(tooltip.len < tooltip_max);
 
         if (tooltip.len == 0 or tooltip.len >= tooltip_max) {

@@ -1,35 +1,39 @@
 set shell := ["cmd", "/c"]
 
-# Default recipe
 default:
     @just --list
 
-# Run unit tests
 test:
     cls && zig build test --summary all
 
-# Build the library
+fuzz:
+    cls && zig build fuzz -- --full
+
+fuzz-test:
+    cls && zig build fuzz-test --summary all
+
+fuzz-smoke:
+    cls && zig build fuzz -- --smoke
+
+fuzz-stress:
+    cls && zig build fuzz -- --stress
+
 build:
     cls && zig build
 
-# Build all examples
 examples:
     cls && zig build examples
 
-# Build and run a specific example
 example name="basic":
     cls && just clean && zig build examples && zig-out\bin\{{name}}.exe
 
-# Format all source files
 fmt:
-    cls && zig fmt src/ examples/
+    cls && zig fmt src/ examples/ testing/
 
-# Clean build artifacts
 clean:
     cls
     if exist zig-out rd /s /q zig-out
     if exist .zig-cache rd /s /q .zig-cache
 
-# Build in release mode
 release:
     cls && zig build -Doptimize=ReleaseSafe

@@ -89,7 +89,6 @@ pub const WindowManager = struct {
 
     pub fn create(self: *WindowManager) Error!void {
         std.debug.assert(@intFromPtr(self) != 0);
-        std.debug.assert(self.name_len > 0);
 
         if (self.name_len == 0) {
             return Error.InvalidName;

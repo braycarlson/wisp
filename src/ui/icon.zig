@@ -154,8 +154,6 @@ pub const IconManager = struct {
 
     pub fn add(self: *IconManager, name: []const u8, source: Source) Error!void {
         std.debug.assert(@intFromPtr(self) != 0);
-        std.debug.assert(name.len > 0);
-        std.debug.assert(name.len < name_max);
 
         if (self.count >= icon_max) {
             return Error.CapacityExceeded;
