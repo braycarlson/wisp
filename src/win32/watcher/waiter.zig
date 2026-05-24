@@ -65,7 +65,7 @@ pub fn wait(
     }
 
     const handles = [2]w32.HANDLE{ io_signal.handle, stop_signal.handle };
-    const wait_status = w32.WaitForMultipleObjects(2, &handles, w32.FALSE, w32.INFINITE);
+    const wait_status = @intFromEnum(w32.WaitForMultipleObjects(2, &handles, w32.FALSE, w32.INFINITE));
     const object_0 = @intFromEnum(w32.WAIT_OBJECT_0);
 
     if (wait_status == object_0 + 1) {
